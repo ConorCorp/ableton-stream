@@ -6,7 +6,13 @@
     "google-spreadsheet": "^3.3.0",
     "tmi.js": "^1.8.5"
   },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3"
+  },
   "scripts": {
-    "runApp": "node index.js"
+    "runApp": "node src/index.js",
+    "build": "babel src -d dist"
   }
 }
