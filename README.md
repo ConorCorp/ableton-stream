@@ -7,3 +7,10 @@
 3. Creates a key value map where 1 key keyword points to an action (i.e "vibes" => "dorian, slower)
 4. Then we'll integrate your twitch code, which will turn the whole chat message into lowercase, and look for trigger Keywords in the message
 5. If there are 1 (or multiple) matches, the most low down on the Google Sheet is passed to Max4live.
+
+## Running
+
+```bash
+yarn install
+yarn runApp
+```

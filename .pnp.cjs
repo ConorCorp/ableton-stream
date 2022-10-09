@@ -35,8 +35,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["dotenv", "npm:16.0.2"],
-            ["google-spreadsheet", "npm:3.3.0"]
+            ["dotenv", "npm:16.0.3"],
+            ["google-spreadsheet", "npm:3.3.0"],
+            ["tmi.js", "npm:1.8.5"]
           ],
           "linkType": "SOFT",
         }]
@@ -46,8 +47,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["abletonStream", "workspace:."],
-            ["dotenv", "npm:16.0.2"],
-            ["google-spreadsheet", "npm:3.3.0"]
+            ["dotenv", "npm:16.0.3"],
+            ["google-spreadsheet", "npm:3.3.0"],
+            ["tmi.js", "npm:1.8.5"]
           ],
           "linkType": "SOFT",
         }]
@@ -142,10 +144,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["dotenv", [
-        ["npm:16.0.2", {
-          "packageLocation": "./.yarn/cache/dotenv-npm-16.0.2-80af4821b1-ca8f9ca2d6.zip/node_modules/dotenv/",
+        ["npm:16.0.3", {
+          "packageLocation": "./.yarn/cache/dotenv-npm-16.0.3-4cc29121dc-afcf03f373.zip/node_modules/dotenv/",
           "packageDependencies": [
-            ["dotenv", "npm:16.0.2"]
+            ["dotenv", "npm:16.0.3"]
           ],
           "linkType": "HARD",
         }]
@@ -408,6 +410,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["tmi.js", [
+        ["npm:1.8.5", {
+          "packageLocation": "./.yarn/cache/tmi.js-npm-1.8.5-0f0bc51264-a48a05d9f2.zip/node_modules/tmi.js/",
+          "packageDependencies": [
+            ["tmi.js", "npm:1.8.5"],
+            ["node-fetch", "virtual:3aff5de9aa9655fc2e0061a169196d4f38637238f9a8c7683ee29b6727ca6cbefdd471cedef90a290240eb591f5f67a004301fe3147dfc24344c0b7f018092b8#npm:2.6.7"],
+            ["ws", "virtual:0f0bc5126495381b45124c3eb55fd351f5caa83761fb82f27495800d6cfaa5877689ffd2a33087c860c1b3d4c5c2cdcc7fab0b1d8c50c72858f1d1086ee4b3b6#npm:8.9.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["tr46", [
         ["npm:0.0.3", {
           "packageLocation": "./.yarn/cache/tr46-npm-0.0.3-de53018915-726321c5ea.zip/node_modules/tr46/",
@@ -433,6 +446,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["whatwg-url", "npm:5.0.0"],
             ["tr46", "npm:0.0.3"],
             ["webidl-conversions", "npm:3.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["ws", [
+        ["npm:8.9.0", {
+          "packageLocation": "./.yarn/cache/ws-npm-8.9.0-d620434feb-23aa0f021b.zip/node_modules/ws/",
+          "packageDependencies": [
+            ["ws", "npm:8.9.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:0f0bc5126495381b45124c3eb55fd351f5caa83761fb82f27495800d6cfaa5877689ffd2a33087c860c1b3d4c5c2cdcc7fab0b1d8c50c72858f1d1086ee4b3b6#npm:8.9.0", {
+          "packageLocation": "./.yarn/__virtual__/ws-virtual-8b63b527a2/0/cache/ws-npm-8.9.0-d620434feb-23aa0f021b.zip/node_modules/ws/",
+          "packageDependencies": [
+            ["ws", "virtual:0f0bc5126495381b45124c3eb55fd351f5caa83761fb82f27495800d6cfaa5877689ffd2a33087c860c1b3d4c5c2cdcc7fab0b1d8c50c72858f1d1086ee4b3b6#npm:8.9.0"],
+            ["@types/bufferutil", null],
+            ["@types/utf-8-validate", null],
+            ["bufferutil", null],
+            ["utf-8-validate", null]
+          ],
+          "packagePeers": [
+            "@types/bufferutil",
+            "@types/utf-8-validate",
+            "bufferutil",
+            "utf-8-validate"
           ],
           "linkType": "HARD",
         }]
