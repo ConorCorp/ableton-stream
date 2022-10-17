@@ -6,6 +6,7 @@ require("dotenv").config();
 const GOOGLE_SHEET_KEYWORD_PAGE_INDEX = 1; // 2nd Google Sheet
 const TWITCH_USERNAME = "dogeeseseegucci"; // 2nd Google Sheet
 const TWITCH_APP = "TextAdventure_54321"; // 2nd Google Sheet
+const DEBUG = false;
 
 const _cleanKeywordsAndSet = (keywords, action, rowsMap) => {
   const keywordsLower = keywords.toLowerCase();
@@ -28,6 +29,7 @@ const getParsedKeywordActionsMap = async (doc) => {
 };
 
 const _getMatchedCommands = (keywordMap, twitchChatMsg) => {
+  // Get all pairs of keyword -> command that match the twitchChatMsg
   const matches = [];
   for (entry of keywordMap.entries()) {
     const keyword = entry[0];
@@ -44,6 +46,7 @@ const _getMatchedCommands = (keywordMap, twitchChatMsg) => {
 };
 
 const connectTwitch = () => {
+  console.log(process.env.TWITCH_TOKEN);
   const client = new tmi.Client({
     options: { debug: true },
     identity: {
@@ -59,8 +62,7 @@ const connectTwitch = () => {
 const getMatchedCommand = (keywordMap, twitchChatMsg) => {
   // Get only the most recent command. Likely a user made it then.
   const matches = _getMatchedCommands(keywordMap, twitchChatMsg.toLowerCase());
-  console.log(`-- Found ${matches.length} matches in text:\n${twitchChatMsg}`);
-  matches &&
+  if (matches)
     console.log(`-- All Matches:\n${JSON.stringify(matches, null, 4)}`);
   const matchedCommand = matches[matches.length - 1] || null;
   matchedCommand && console.log(`-- Command for Max4Live: ${matchedCommand}`);
@@ -79,11 +81,12 @@ const runApp = async () => {
   await doc.loadInfo(); // loads document properties and worksheets
   console.log(`Google Doc Found: ${doc.title}`);
   const keywordsToActionsMap = await getParsedKeywordActionsMap(doc);
-  // console.log(keywordsToActionsMap);
+  if (DEBUG) console.log(keywordsToActionsMap);
 
   const client = connectTwitch();
 
   client.on("message", (channel, tags, twitchChatMsg, self) => {
+    // const twitchChatMsg = "vibes";
     console.log("-- Twitch Text");
     console.log(twitchChatMsg);
     const matchedKeywordAndCommandPair = getMatchedCommand(
@@ -91,15 +94,15 @@ const runApp = async () => {
       twitchChatMsg
     );
     console.log(matchedKeywordAndCommandPair);
+    if (tags.username !== TWITCH_USERNAME)
+      client.say(
+        channel,
+        `@${tags.username} mentioned "${matchedKeywordAndCommandPair[0]}" which activates "${matchedKeywordAndCommandPair[0]}"`
+      );
     console.log("----------");
     // TODO: Send righthand side of array (commands to max4live)
     // maxApi.outlet(message);
   });
 };
-
-// TODO:s
-// Set up twitch
-// Make it map to only single word entries, or just split upon matching
-// Return a " " separated string
 
 runApp();
