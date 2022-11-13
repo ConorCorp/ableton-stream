@@ -10,3 +10,5 @@
 #/.pnp.*
 
 .env
+.yarn
+node_modules/
