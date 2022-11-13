@@ -1,4 +1,6 @@
 const express = require("express");
+const maxApi = eval('require')("max-api"); //Do this so webpack doesn't shit itself.
+
 const app = express();
 const port = 3000;
 
@@ -8,6 +10,7 @@ app.post("/", (req, res) => {
   res.send("Received in server.");
   console.log(req.body.command);
   //TODO: Send this to max4live
+  maxApi.outlet(req.body.command);
 });
 
 app.listen(port, () => {

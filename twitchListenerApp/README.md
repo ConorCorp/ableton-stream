@@ -11,6 +11,6 @@
 ## Running
 
 ```bash
-yarn install
-yarn runApp
+npm install
+npm runApp
 ```
