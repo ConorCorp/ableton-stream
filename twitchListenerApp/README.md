@@ -14,3 +14,8 @@
 npm install
 npm runApp
 ```
+
+## .env file
+
+GOOGLE_API_KEY=xxxx
+TWITCH_TOKEN=oauth:xxxx

@@ -69,6 +69,17 @@ const getMatchedCommand = (keywordMap, twitchChatMsg) => {
   return matchedCommand;
 };
 
+const sendPost = (command) => {
+  fetch("http://localhost:3000", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ command: command }),
+  });
+};
+
 const runApp = async () => {
   // Initialize the sheet - doc ID is the long id in the sheets URL
   const doc = new GoogleSpreadsheet(
@@ -94,14 +105,16 @@ const runApp = async () => {
       twitchChatMsg
     );
     console.log(matchedKeywordAndCommandPair);
-    if (tags.username !== TWITCH_USERNAME)
-      client.say(
-        channel,
-        `@${tags.username} mentioned "${matchedKeywordAndCommandPair[0]}" which activates "${matchedKeywordAndCommandPair[0]}"`
-      );
     console.log("----------");
     // TODO: Send righthand side of array (commands to max4live)
-    // maxApi.outlet(message);
+    if (matchedKeywordAndCommandPair) {
+      if (tags.username !== TWITCH_USERNAME)
+        client.say(
+          channel,
+          `@${tags.username} mentioned "${matchedKeywordAndCommandPair[0]}" which activates "${matchedKeywordAndCommandPair[0]}"`
+        );
+      sendPost(matchedKeywordAndCommandPair[0]);
+    }
   });
 };
 
