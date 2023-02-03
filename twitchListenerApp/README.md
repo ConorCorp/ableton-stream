@@ -18,10 +18,16 @@ The real meat is here. This parses the rules from our google sheet, and listens 
 # 1. Create an empty file '.env' in this directory
 # 2. Copy the '.env file' section from here into the '.env' file with the proper keys.
 npm install
-npm runApp
+npm run runApp
 ```
+
+## Working example
+
+![working-example.png](working-example.png "Cool")
 
 ## .env file
 
+```
 GOOGLE_API_KEY=xxxx
 TWITCH_TOKEN=oauth:xxxx
+```
