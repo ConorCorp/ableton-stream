@@ -1,5 +1,9 @@
 # twitchListenerApp
 
+## Summary
+
+The real meat is here. This parses the rules from our google sheet, and listens for twitch messages, then posts them to the max4live server.
+
 ## How It Works
 
 1. Pulls in this [G sheet](https://docs.google.com/spreadsheets/d/1DNoENT4H-c4KjjNYWnegUOXIIrvo3ZamlwGlfm0U3Ss/edit#gid=0)
@@ -11,6 +15,8 @@
 ## Running
 
 ```bash
+# 1. Create an empty file '.env' in this directory
+# 2. Copy the '.env file' section from here into the '.env' file with the proper keys.
 npm install
 npm runApp
 ```

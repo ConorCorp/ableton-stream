@@ -1,26 +1,13 @@
 # abletonStream
 
-- conall's code - Original code
-- twitchListenerApp - App which listens to twitch.
-- max4Live Server - server which works in javasciript 1.8 and receives msgs from twitchListenerApp
+- conall's code - Original code - Don't need anymore
+- twitchListenerApp - The real meat is here. This parses the rules from our google sheet, and listens for twitch messages, then posts them to the max4live server.
+- max4LiveServer - Server that should run in Max4live and receive messages from twitchListener app.
 
 ## How to use
 
-1. Run code in max4liveServer/dist/index.bundle.js inside max4live so it can receive messages and send to max4live.
-2. Run code in twitchListenerApp/src/index.js in the terminal with.
-
-   - 2a. Make sure you have your `.env` file in here.
-
+1. Run the `twitchListenerApp` so we can listen to twitch.
+   - Instructions from [./twitchListenerApp/README.md](./twitchListenerApp/README.md)
+2. Run the `max4LiveServer` in max4live so it can receive max4live commands.
+   - Instructions from [./max4liveServer/README.md](./max4LiveServer/README.md)
 3. Test with a twitch message.
-
-```bash
-cd max4liveServer
-npm install
-npx webpack
-npm run runDist #or run in max4live
-cd ..
-
-cd twitchListenerApp
-npm install
-npm run runApp
-```
