@@ -113,7 +113,7 @@ const runApp = async () => {
           channel,
           `@${tags.username} mentioned "${matchedKeywordAndCommandPair[0]}" which activates "${matchedKeywordAndCommandPair[0]}"`
         );
-      sendPost(matchedKeywordAndCommandPair[0]);
+      sendPost(matchedKeywordAndCommandPair[1]);
     }
   });
 };

@@ -1,5 +1,0 @@
-forward,0;
-backward,1;
-both,2;
-rotate,3;
-random,4;
